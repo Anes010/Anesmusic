@@ -43,7 +43,7 @@ def time_to_seconds(time):
 
 
 @Client.on_message(
-    command(["play", "p", "fuck"])
+    command(["تشغيل", "ش", "fuck"])
     & filters.group
     & ~filters.edited
     & ~filters.forwarded
@@ -55,7 +55,7 @@ async def play(_, message: Message):
 
     await message.delete()
 
-    fallen = await message.reply("» ᴘʀᴏᴄᴇssɪɴɢ​... ᴘʟᴇᴀsᴇ ᴡᴀɪᴛ ʙᴀʙʏ🔎")
+    fallen = await message.reply("» جاري التجهيز​... فدوه اروحلك اصبر🔎")
 
     chumtiya = message.from_user.mention
 
@@ -77,24 +77,24 @@ async def play(_, message: Message):
                     invitelink = await _.export_chat_invite_link(chid)
                 except:
                     await fallen.edit(
-                        "<b>» ꜰɪʀsᴛʟʏ ᴍᴀᴋᴇ ᴍᴇ ᴀᴅᴍɪɴ ʙᴀʙʏ</b>")
+                        "<b>» اولا ارفعني مشرف حبي</b>")
                     return
 
                 try:
                     await USER.join_chat(invitelink)
                     await USER.send_message(
-                        message.chat.id, "» ᴀssɪsᴛᴀɴᴛ sᴜᴄᴄᴇssꜰᴜʟʏ ᴊᴏɪɴᴇᴅ ᴛʜᴇ ᴄʜᴀᴛ ʙᴀʙʏ, ɴᴏᴡ ʏᴏᴜ ᴄᴀɴ ᴘʟᴀʏ sᴏɴɢs​.")
+                        message.chat.id, "» انضم حساب المساعد بنجاح للكروب, الان يمكن تشغيل الي يعجبك​.")
 
                 except UserAlreadyParticipant:
                     pass
                 except Exception:
                     await fallen.edit(
-                        f"<b>» ᴀssɪsᴛᴀɴᴛ ɪs ɴᴏᴛ ɪɴ ᴛʜɪs ᴄʜᴀᴛ ʙᴀʙʏ, sᴇɴᴅ /join ғɪʀsᴛ ᴛɪᴍᴇ ᴛᴏ ᴏʀᴅᴇʀ ᴛʜᴇ ᴀssɪsᴛᴀɴᴛ ᴛᴏ ᴊ​ᴏɪɴ ʏᴏᴜʀ ᴄʜᴀᴛ.")
+                        f"<b>» حساب المساعد ليسه بالكروب حبي, دز /انضم اولا يترتب على حساب مساعد الانضمام الى الكروب.")
     try:
         await USER.get_chat(chid)
     except Exception as e:
         await fallen.edit(
-            f"<i>» ᴀssɪsᴛᴀɴᴛ ғᴀɪʟᴇᴅ ᴛᴏ ᴊᴏɪɴ ᴛʜɪs ᴄʜᴀᴛ.</i>\n\nʀᴇᴀsᴏɴ : {e}")
+            f"<i>» فشل حساب المساعد من الانضمام الى المجموعه.</i>\n\nالسبب : {e}")
         return
     
     audio = (
