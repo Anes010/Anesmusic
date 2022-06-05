@@ -22,7 +22,7 @@ def humanbytes(size):
 #Module by AnonymousBoy1025
 # FETCH SYSINFO
 
-@Client.on_message(command(["sysinfo"]) & ~filters.edited)
+@Client.on_message(command(["المعلومات"]) & ~filters.edited)
 async def give_sysinfo(client, message):
     splatform = platform.system()
     platform_release = platform.release()
