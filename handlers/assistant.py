@@ -8,7 +8,7 @@ from callsmusic.callsmusic import client as user
 
 
 @Client.on_message(
-    command(["join", "assistant", " userbotjoin"]) & ~filters.private & ~filters.bot
+    command(["انضم", "حساب المساعد", " userbotjoin"]) & ~filters.private & ~filters.bot
 )
 @authorized_users_only
 async def join_chat(c: Client, m: Message):
@@ -23,7 +23,7 @@ async def join_chat(c: Client, m: Message):
             (await user.get_me()).id,
             can_manage_voice_chats=True
         )
-        return await user.send_message(chat_id, "🙂ᴀssɪsᴛᴀɴᴛ sᴜᴄᴄᴇssꜰᴜʟʟʏ ᴊᴏɪɴᴇᴅ ᴛʜᴇ ᴄʜᴀᴛ ʙᴀʙʏ.​")
+        return await user.send_message(chat_id, "انضم حساب المساعد الى المجموعه🙂.​")
     except UserAlreadyParticipant:
         admin = await m.chat.get_member((await user.get_me()).id)
         if not admin.can_manage_voice_chats:
@@ -31,5 +31,5 @@ async def join_chat(c: Client, m: Message):
                 (await user.get_me()).id,
                 can_manage_voice_chats=True
             )
-            return await user.send_message(chat_id, "🙂ᴀssɪsᴛᴀɴᴛ ᴀʟʀᴇᴀᴅʏ ᴊᴏɪɴᴇᴅ ᴛʜᴇ ᴄʜᴀᴛ ʙᴀʙʏ.​")
-        return await user.send_message(chat_id, "🙂ᴀssɪsᴛᴀɴᴛ ᴀʟʀᴇᴀᴅʏ ᴊᴏɪɴᴇᴅ ᴛʜᴇ ᴄʜᴀᴛ ʙᴀʙʏ.​")
+            return await user.send_message(chat_id, "بالفعل حساب المساعد داخل المجموعه🙂.​")
+        return await user.send_message(chat_id, "بالفعل حساب المساعد داخل المجموعه🙂.​")
